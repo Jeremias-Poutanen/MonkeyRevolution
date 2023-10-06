@@ -5,11 +5,11 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     [SerializeField] GameObject player;
-    [SerializeField] float cameraPosX = 3f;
+    [SerializeField] float cameraPosY = 3f;
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(player.transform.position.x, cameraPosX, -10f);
+        transform.position = new Vector3(player.transform.position.x, cameraPosY, -10f);
     }
 }
