@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] GameObject playerSprite;
     [SerializeField] Rigidbody2D playerRb;
     [SerializeField] float jumpForce = 16f;
     [SerializeField] float speed = 300f;
     [SerializeField] float gravityMultiplier = 5;
+    [SerializeField] float spriteOffsetY = 0f;
+    [SerializeField] float spriteOffsetX = 0f;
     float horizontalValue;
     bool isGrounded = true;
     bool doubleJump = false;
@@ -36,6 +40,16 @@ public class PlayerController : MonoBehaviour
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
             doubleJump = true;
         }
+
+        if(horizontalValue > 0)
+        {
+            playerSprite.transform.rotation = new Quaternion(0, 0, 0, 0);
+        }
+
+        if(horizontalValue < 0)
+        {
+            playerSprite.transform.rotation = new Quaternion(0, 180, 0, 0);
+        }
     }
 
     void FixedUpdate()
@@ -48,6 +62,8 @@ public class PlayerController : MonoBehaviour
         float xVal = horizontalValue * speed * Time.deltaTime;
         Vector2 targetVelocity = new Vector2(xVal, playerRb.velocity.y);
         playerRb.velocity = targetVelocity;
+
+        playerSprite.transform.position =  new Vector3(playerRb.transform.position.x + spriteOffsetX, playerRb.transform.position.y + spriteOffsetY, playerRb.transform.position.z);
     }
 
     void OnTriggerEnter2D(Collider2D collider2D)
