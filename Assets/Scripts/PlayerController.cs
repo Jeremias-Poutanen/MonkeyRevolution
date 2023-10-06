@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -9,6 +10,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed = 300f;
     [SerializeField] float gravityMultiplier = 5;
     float horizontalValue;
+    bool isGrounded = true;
+    bool doubleJump = false;
     
 
     void Start()
@@ -20,10 +23,18 @@ public class PlayerController : MonoBehaviour
     {
         horizontalValue = Input.GetAxisRaw("Horizontal");
 
-        if(Input.GetKeyDown(KeyCode.Space)) 
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded && doubleJump) 
         { 
+            playerRb.velocity = Vector3.zero;
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
-            //isOnGround = false;
+            isGrounded = false;
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space) && isGrounded) 
+        { 
+            playerRb.velocity = Vector3.zero;
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+            doubleJump = true;
         }
     }
 
@@ -37,6 +48,15 @@ public class PlayerController : MonoBehaviour
         float xVal = horizontalValue * speed * Time.deltaTime;
         Vector2 targetVelocity = new Vector2(xVal, playerRb.velocity.y);
         playerRb.velocity = targetVelocity;
+    }
+
+    void OnTriggerEnter2D(Collider2D collider2D)
+    {
+        if(collider2D.tag == "Ground")
+        {
+            isGrounded = true;
+            doubleJump = false;
+        }
     }
 }
 
