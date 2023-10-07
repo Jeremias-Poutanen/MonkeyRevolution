@@ -7,15 +7,19 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] GameObject playerSprite;
+    [SerializeField] GameObject gunSprite;
     [SerializeField] Rigidbody2D playerRb;
     [SerializeField] float jumpForce = 16f;
     [SerializeField] float speed = 300f;
     [SerializeField] float gravityMultiplier = 5;
     [SerializeField] float spriteOffsetY = 0f;
     [SerializeField] float spriteOffsetX = 0f;
+    [SerializeField] float gunSpriteOffsetY = 0f;
+    [SerializeField] float gunSpriteOffsetX = 0f;
     float horizontalValue;
     bool isGrounded = true;
     bool doubleJump = false;
+    public bool facingRight = true;
     
 
     void Start()
@@ -27,14 +31,14 @@ public class PlayerController : MonoBehaviour
     {
         horizontalValue = Input.GetAxisRaw("Horizontal");
 
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded && doubleJump) 
+        if(Input.GetKeyDown(KeyCode.W) && isGrounded && doubleJump) 
         { 
             playerRb.velocity = Vector3.zero;
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
             isGrounded = false;
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && isGrounded) 
+        if(Input.GetKeyDown(KeyCode.W) && isGrounded) 
         { 
             playerRb.velocity = Vector3.zero;
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
@@ -43,12 +47,26 @@ public class PlayerController : MonoBehaviour
 
         if(horizontalValue > 0)
         {
+            facingRight = true;
             playerSprite.transform.rotation = new Quaternion(0, 0, 0, 0);
+            gunSprite.transform.rotation = new Quaternion(0, 0, 0, 0);
+
+            if(gunSpriteOffsetX < 0)
+            {
+                gunSpriteOffsetX *= -1;
+            }
         }
 
         if(horizontalValue < 0)
         {
+            facingRight = false;
             playerSprite.transform.rotation = new Quaternion(0, 180, 0, 0);
+            gunSprite.transform.rotation = new Quaternion(0, 180, 0, 0);
+
+            if(gunSpriteOffsetX > 0)
+            {
+                gunSpriteOffsetX *= -1;
+            }
         }
     }
 
@@ -64,6 +82,7 @@ public class PlayerController : MonoBehaviour
         playerRb.velocity = targetVelocity;
 
         playerSprite.transform.position =  new Vector3(playerRb.transform.position.x + spriteOffsetX, playerRb.transform.position.y + spriteOffsetY, playerRb.transform.position.z);
+        gunSprite.transform.position =  new Vector3(playerRb.transform.position.x + gunSpriteOffsetX, playerRb.transform.position.y + gunSpriteOffsetY, playerRb.transform.position.z);
     }
 
     void OnTriggerEnter2D(Collider2D collider2D)

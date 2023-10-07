@@ -4,23 +4,31 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public GameObject Projectile;
+    [SerializeField] GameObject Projectile;
+    [SerializeField] float spawnOffset = 2;
+    float actualOffset;
+    PlayerController playerController;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        playerController = FindObjectOfType<PlayerController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if(!playerController.facingRight)
+            {
+                actualOffset = spawnOffset * -1;
+            }
+            else
+            {
+                actualOffset = spawnOffset;
+            }
+            Debug.Log(actualOffset);
             //Ammutaan projektiili
-            Instantiate(Projectile, transform.position + Vector3.right, Projectile.transform.rotation);
+            Instantiate(Projectile, transform.position + new Vector3(actualOffset, 0.5f, 0), Projectile.transform.rotation);
         }
-
-
     }
 }
