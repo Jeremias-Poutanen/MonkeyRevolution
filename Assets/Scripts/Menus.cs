@@ -5,7 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Menus : MonoBehaviour
 {
-    
+    public GameObject GameOverScreen;
+
+    public void GameOver()
+    {
+        
+    }
 
     public void StartGame()
     {
@@ -22,7 +27,7 @@ public class Menus : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        GameOverScreen.SetActive(false);
     }
 
     // Update is called once per frame

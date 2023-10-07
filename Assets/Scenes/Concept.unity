@@ -5581,8 +5581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b117c3749f19ba140962d6a0fba757ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOverMenu: {fileID: 2030188924}
-  StartMenu: {fileID: 0}
+  GameOverScreen: {fileID: 2030188924}
 --- !u!114 &2030188926
 MonoBehaviour:
   m_ObjectHideFlags: 0
