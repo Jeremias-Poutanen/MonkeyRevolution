@@ -9,7 +9,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject playerSprite;
     [SerializeField] GameObject gunSprite;
     [SerializeField] GameObject bossRoomDoor;
-    CameraController cameraController;
     [SerializeField] Rigidbody2D playerRb;
     [SerializeField] float jumpForce = 16f;
     [SerializeField] float speed = 300f;
@@ -24,6 +23,7 @@ public class PlayerController : MonoBehaviour
     public bool facingRight = true;
     public bool hasGun = false;
     public bool inBossRoom = false;
+    CameraController cameraController;
     
 
     void Start()

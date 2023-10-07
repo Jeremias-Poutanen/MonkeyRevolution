@@ -14,9 +14,7 @@ public class Menus : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log("moi");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        
     }
 
     public void QuitGame()
