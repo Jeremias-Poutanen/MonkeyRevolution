@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] GameObject playerSprite;
     [SerializeField] GameObject gunSprite;
+    [SerializeField] GameObject bossRoomDoor;
+    CameraController cameraController;
     [SerializeField] Rigidbody2D playerRb;
     [SerializeField] float jumpForce = 16f;
     [SerializeField] float speed = 300f;
@@ -21,11 +23,13 @@ public class PlayerController : MonoBehaviour
     bool doubleJump = false;
     public bool facingRight = true;
     public bool hasGun = false;
+    public bool inBossRoom = false;
     
 
     void Start()
     {
         Physics2D.gravity *= gravityMultiplier; 
+        cameraController = FindObjectOfType<CameraController>();
     }
 
     void Update()
@@ -99,6 +103,13 @@ public class PlayerController : MonoBehaviour
             hasGun = true;
             gunSprite.SetActive(true);
             Destroy(collider2D.gameObject);
+        }
+
+        if(collider2D.tag == "BossRoom")
+        {
+            inBossRoom = true;
+            cameraController.BossRoomCamera();
+            bossRoomDoor.SetActive(true);
         }
     }
 }
