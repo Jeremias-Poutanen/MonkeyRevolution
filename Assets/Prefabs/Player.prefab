@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 5317295245307566170}
   - component: {fileID: 2469300679505338424}
   - component: {fileID: 6573715738084189663}
+  - component: {fileID: 1928795770570350381}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player
@@ -294,6 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSprite: {fileID: 774800901312909530}
   gunSprite: {fileID: 4255066664376134322}
+  bossRoomDoor: {fileID: 0}
   playerRb: {fileID: 5317295245307566170}
   jumpForce: 40
   speed: 700
@@ -304,6 +306,7 @@ MonoBehaviour:
   gunSpriteOffsetX: 2
   facingRight: 1
   hasGun: 0
+  inBossRoom: 0
 --- !u!58 &6573715738084189663
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -339,6 +342,41 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1
+--- !u!58 &1928795770570350381
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4534401232599126418}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 5.84
 --- !u!1 &6899799756884332586
 GameObject:
   m_ObjectHideFlags: 0
