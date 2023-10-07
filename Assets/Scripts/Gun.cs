@@ -16,7 +16,7 @@ public class Gun : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && playerController.hasGun)
         {
             if(!playerController.facingRight)
             {
@@ -26,7 +26,7 @@ public class Gun : MonoBehaviour
             {
                 actualOffset = spawnOffset;
             }
-            Debug.Log(actualOffset);
+            
             //Ammutaan projektiili
             Instantiate(Projectile, transform.position + new Vector3(actualOffset, 0.5f, 0), Projectile.transform.rotation);
         }

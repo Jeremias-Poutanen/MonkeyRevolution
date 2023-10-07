@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     bool isGrounded = true;
     bool doubleJump = false;
     public bool facingRight = true;
+    public bool hasGun = false;
     
 
     void Start()
@@ -91,6 +92,13 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
             doubleJump = false;
+        }
+
+        if(collider2D.tag == "Gun")
+        {
+            hasGun = true;
+            gunSprite.SetActive(true);
+            Destroy(collider2D.gameObject);
         }
     }
 }
