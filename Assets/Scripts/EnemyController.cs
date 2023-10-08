@@ -7,16 +7,20 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] Rigidbody2D enemyRb;
     [SerializeField] GameObject enemySprite;
+    [SerializeField] GameObject parent;
     [SerializeField] float speed = 300f;
     [SerializeField] float changeDirSpeed = 3;
     [SerializeField] float enemyDir = -1f;
     [SerializeField] float spriteOffsetX = 0f;
     [SerializeField] float spriteOffsetY = 0f;
+    [SerializeField] int health = 3;
+    GameManager gameManager;
     IEnumerator coroutine;
     
 
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         coroutine = ChangeDirection(changeDirSpeed);
         StartCoroutine(coroutine);
     }
@@ -60,7 +64,25 @@ public class EnemyController : MonoBehaviour
     {
         if(collision2D.collider.tag == "Player")
         {
+            gameManager.TakeDamage(1);
             Destroy(transform.parent.gameObject);
+        }
+    }
+
+        void OnTriggerEnter2D(Collider2D collider2D)
+    {
+
+
+    }
+
+    public void DoEnemyDamage()
+    {
+        health--;
+        Debug.Log(health);
+
+        if(health <= 0)
+        {
+            Destroy(parent);
         }
     }
 }

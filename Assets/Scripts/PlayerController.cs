@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] GameObject playerSprite;
     [SerializeField] GameObject gunSprite;
     [SerializeField] GameObject bossRoomDoor;
+    [SerializeField] GameObject boss;
+    [SerializeField] GameObject bossSpawner;
     [SerializeField] Rigidbody2D playerRb;
     [SerializeField] float jumpForce = 16f;
     [SerializeField] float speed = 300f;
@@ -111,6 +113,8 @@ public class PlayerController : MonoBehaviour
             inBossRoom = true;
             cameraController.BossRoomCamera();
             bossRoomDoor.SetActive(true);
+            boss.SetActive(true);
+            bossSpawner.SetActive(true);
         }
     }
 }

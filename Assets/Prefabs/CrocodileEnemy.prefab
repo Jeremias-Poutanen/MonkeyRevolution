@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4689896757866602161}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2136459901404105587}
   m_Layer: 0
   m_Name: CrocodileEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 3949144840295977865}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -204,7 +204,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5968219786060042491}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -273,8 +273,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyRb: {fileID: 6968604890965910179}
   enemySprite: {fileID: 5133870048981524069}
+  parent: {fileID: 5191770708594350940}
   speed: 300
   changeDirSpeed: 3
   enemyDir: -1
   spriteOffsetX: -1.8
   spriteOffsetY: -0.075
+  health: 3

@@ -19,7 +19,7 @@ public class OutOfBoundsController : MonoBehaviour
         if(collider2D.tag == "Player")
         {
             playerController.transform.position = respawnPoint.transform.position;
-            gameManager.TakeDamage();
+            gameManager.TakeDamage(1);
         }
     }
 }

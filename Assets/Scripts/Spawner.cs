@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
 
     //range for spawner [-XRange ... XRange]
     public float XRange = 40.0f;
+    public float spawnSpeed = 1;
 
     private void SpawnRandomOne()
     {
@@ -25,7 +26,7 @@ public class Spawner : MonoBehaviour
     {
         //for (int i = 0;i<20;i++)
 
-        InvokeRepeating("SpawnRandomOne", 1.0f, 1.0f);
+        InvokeRepeating("SpawnRandomOne", spawnSpeed, spawnSpeed);
 
         SpawnRandomOne();
     }

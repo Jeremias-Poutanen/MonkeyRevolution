@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject GameOverScreen;
     [SerializeField] TMP_Text healtText;
     public GameObject VictoryScreen;
+    bool isImmune = false;
     
 
     void Start()
@@ -17,9 +18,16 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
-        health--;
+        if(isImmune)
+        {
+            return;
+        }
+
+        health -= damage;
+        isImmune = true;
+        Invoke("DisableDamageImmunity", 1f);
 
         if(health <= 0)
         {
@@ -27,17 +35,22 @@ public class GameManager : MonoBehaviour
         }
 
         healtText.text = health.ToString();
-
     }
-    void GameOver()
+    public void GameOver()
     {
         Time.timeScale = 0;
 
         GameOverScreen.SetActive(true);
     }
 
-    void Victory()
+    public void Victory()
     {
+        Time.timeScale = 0;
         VictoryScreen.SetActive(true);
+    }
+
+    void DisableDamageImmunity()
+    {
+        isImmune = false;
     }
 }

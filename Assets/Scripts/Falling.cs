@@ -9,10 +9,10 @@ public class Falling : MonoBehaviour
     public float moveamount = 1f;
 
     // Start is called before the first frame update
-    void Start()
+        void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
-        
+
     }
 
     // Update is called once per frame
@@ -21,8 +21,12 @@ public class Falling : MonoBehaviour
         transform.position += Vector3.down * moveamount * Time.deltaTime;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        gameManager.TakeDamage();
+        if(other.tag == "Player")
+        {
+            gameManager.TakeDamage(1);
+            Destroy(gameObject);
+        }
     }
 }

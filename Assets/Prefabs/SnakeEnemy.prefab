@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4476968499212684769}
   m_Layer: 0
   m_Name: SnakeEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 8038127477448188837}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,12 +127,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6893685460491408631}
   - component: {fileID: 8476241506342987701}
-  - component: {fileID: 3063415687016621021}
   - component: {fileID: 6296176173621380297}
   - component: {fileID: 4524926446139337327}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -197,41 +196,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.714596, y: 0.905623}
   m_EdgeRadius: 0
---- !u!58 &3063415687016621021
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8569577894062720120}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.0593959}
-  serializedVersion: 2
-  m_Radius: 1.8889858
 --- !u!50 &6296176173621380297
 Rigidbody2D:
   serializedVersion: 4
@@ -273,8 +237,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyRb: {fileID: 6296176173621380297}
   enemySprite: {fileID: 2576895536775331115}
+  parent: {fileID: 0}
   speed: 500
   changeDirSpeed: 3
   enemyDir: -1
   spriteOffsetX: 0
   spriteOffsetY: 0.1125
+  health: 3
