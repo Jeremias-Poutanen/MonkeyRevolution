@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     int health = 3;
 
     public GameObject GameOverScreen;
+    
 
     void Start()
     {
