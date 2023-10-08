@@ -14,11 +14,6 @@ public class OutOfBoundsController : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
     }
 
-    public void OutOfBoundsRespawn()
-    {
-        playerController.transform.position = respawnPoint.transform.position;
-    }
-
     void OnTriggerEnter2D(Collider2D collider2D)
     {
         if(collider2D.tag == "Player")

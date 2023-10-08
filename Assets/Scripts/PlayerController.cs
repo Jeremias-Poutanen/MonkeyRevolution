@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        Physics2D.gravity = new Vector2(0, -9.81f);
         Physics2D.gravity *= gravityMultiplier; 
         cameraController = FindObjectOfType<CameraController>();
     }

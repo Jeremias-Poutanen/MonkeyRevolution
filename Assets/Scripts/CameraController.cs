@@ -12,7 +12,6 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         bossCameraPosition = new Vector3(531.5f, 38.8f, -10f);
-        Debug.Log(bossCameraPosition);
         playerController = FindObjectOfType<PlayerController>();
     }
 
