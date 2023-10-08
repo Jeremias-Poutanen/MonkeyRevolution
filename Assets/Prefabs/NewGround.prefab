@@ -190,4 +190,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 7744990404995495662}
+  noTrigger: 0
   triggerCollider: {fileID: 6030810931188126521}
