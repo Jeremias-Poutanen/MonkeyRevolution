@@ -12,11 +12,17 @@ public class Falling : MonoBehaviour
     void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.position += Vector3.down * moveamount * Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        gameManager.TakeDamage();
     }
 }
