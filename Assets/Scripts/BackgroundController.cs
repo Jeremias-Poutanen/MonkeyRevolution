@@ -16,7 +16,7 @@ public class BackgroundController : MonoBehaviour
     {
         if(!playerController.inBossRoom)
         {
-            transform.position = new Vector3(playerController.transform.position.x / 2, cameraPosY, -2);
+            transform.position = new Vector3(playerController.transform.position.x / 2, cameraPosY, 2);
         }
     }
 }
