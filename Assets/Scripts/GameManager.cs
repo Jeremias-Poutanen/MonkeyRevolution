@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject GameOverScreen;
     [SerializeField] TMP_Text healtText;
+    public GameObject VictoryScreen;
     
 
     void Start()
@@ -35,4 +36,8 @@ public class GameManager : MonoBehaviour
         GameOverScreen.SetActive(true);
     }
 
+    void Victory()
+    {
+        VictoryScreen.SetActive(true);
+    }
 }
