@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -7,6 +8,7 @@ public class GameManager : MonoBehaviour
     int health = 3;
 
     public GameObject GameOverScreen;
+    [SerializeField] TMP_Text healtText;
     
 
     void Start()
@@ -22,6 +24,9 @@ public class GameManager : MonoBehaviour
         {
             GameOver();
         }
+
+        healtText.text = health.ToString();
+
     }
     void GameOver()
     {
