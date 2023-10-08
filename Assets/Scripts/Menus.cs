@@ -5,16 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Menus : MonoBehaviour
 {
-    public GameObject GameOverScreen;
-
-    public void GameOver()
-    {
-        
-    }
-
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(1);
     }
 
     public void QuitGame()
@@ -22,15 +15,8 @@ public class Menus : MonoBehaviour
         Application.Quit();
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void QuitToMenu()
     {
-        GameOverScreen.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SceneManager.LoadScene(0);
     }
 }
